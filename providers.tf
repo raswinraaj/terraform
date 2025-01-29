@@ -10,16 +10,17 @@ terraform {
       version = ">= 4.0.0"
     }
   }
-}
-
-# This block configures the Azure Resource Manager provider.
-provider "azurerm" {
   backend "azurerm" {
     resource_group_name  = "tfstate-rg"
     storage_account_name = "tfstatestorage123"
     container_name       = "tfstate"
     key                  = "terraform.tfstate"
   }
+}
+
+# This block configures the Azure Resource Manager provider.
+provider "azurerm" {
+  
   # Leave the features block empty as we don't use any specific features in this example.
   features {}
 }
